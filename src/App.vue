@@ -5,28 +5,27 @@
 </template>
 
 <script>
-import MyJumbotron from "./components/MyJumbotron.vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
+import MyJumbotron from './components/MyJumbotron.vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     MyJumbotron,
   },
   data() {
     return {
       list: [
-        { id: 0, name: "Ecrire le sujet", todo: true },
-        { id: 1, name: "Faire le sujet", todo: true },
-        { id: 2, name: "Vendre le sujet", todo: true },
-        { id: 3, name: "Partir en vacances", todo: true },
+        { id: 0, name: 'Ecrire le sujet', todo: true },
+        { id: 1, name: 'Faire le sujet', todo: true },
+        { id: 2, name: 'Vendre le sujet', todo: true },
+        { id: 3, name: 'Partir en vacances', todo: true },
       ],
     };
   },
 };
 </script>
-
 
 <style>
 #app {

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <MyHeader></MyHeader>
+    
+    <MyHeader> </MyHeader>
 
     <b-jumbotron>
       <template v-slot:header>To Do List</template>
@@ -36,6 +37,15 @@ export default {
 </script>
 
 <style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.my-4 {
+  width: 90%;
+}
 h3 {
   margin: 40px 0 0;
 }

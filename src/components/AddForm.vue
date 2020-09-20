@@ -7,41 +7,47 @@
 
 <script>
 import axios from "axios";
+import { mapGetters } from "vuex";
+
 export default {
   name: "AddForm",
   data() {
     return {
       todoText: "",
-      idTodo: 0,
+      id: null,
     };
   },
+  computed: mapGetters(["getSize"]),
   methods: {
     clickAdd(todoT) {
-      axios.get("http://localhost:5000/todo")
+      // axios
+      //   .get("http://localhost:5000/todo")
+      //   .then((response) => {
+      //     // this.list = response.data;
+      //     console.log(this.list.length);
+      this.id = this.getSize;
+      axios
+        .post("http://localhost:5000/todo", {
+          name: todoT,
+          id: this.id++,
+          createdAt: String(new Date()),
+          todo: true,
+        })
         .then((response) => {
-          this.list = response.data;
-          console.log(this.list.length);
-          axios.post("http://localhost:5000/todo", {
-            name: todoT,
-            id: this.list.length,
-            createdAt: String(new Date()),
-            todo: true,
-          })
-            .then((response) => {
-              console.log(response);
-              console.log(todoT);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+          this.$store.dispatch("ACTION_POST", todoT);
+
+          console.log(response);
+          this.todoText = "";
         })
         .catch((error) => {
           console.log(error);
         });
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
     },
   },
 };
 </script>
 
-<style>
-</style>

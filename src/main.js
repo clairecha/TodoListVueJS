@@ -1,15 +1,14 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
 import App from './App.vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import VueRouter from 'vue-router';
 import AddForm from './components/AddForm';
 import ListTodo from './components/ListTodo';
-import 'es6-promise/auto'
-
+import 'es6-promise/auto';
+import { store } from './store';
 
 Vue.use(VueRouter);
-Vue.use(Vuex);
+Vue.use(store);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
@@ -27,5 +26,6 @@ const router = new VueRouter({ routes });
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount('#app');
